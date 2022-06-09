@@ -1,0 +1,585 @@
+@mixin flex-all-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+}
+
+@mixin block-white {
+    background: #ffffff;
+    box-shadow: 0px 4px 30px 6px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    position: relative;
+}
+
+@mixin frcc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin frfsc {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@mixin frcfs {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@mixin frsbc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin fccc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin fcfsc {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@mixin fccfs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+// Grid
+
+@mixin flex-row($cg: 0) {
+    display: flex;
+    column-gap: $cg;
+}
+
+@mixin flex-col-equal($n: 2) {
+    flex: 1 1 100% / $n;
+    width: 50%;
+}
+
+// Buttons
+
+@mixin button($py: 1.2vh, $px: 2.2vh, $fz: 1.8vh) {
+    display: flex;
+    padding: $py $px;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: $fz;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: $sh-1;
+    }
+
+    &,
+    &:focus {
+        border-radius: 4px;
+        outline: none;
+    }
+
+    &:disabled {
+        box-shadow: none;
+        opacity: 0.8;
+        pointer-events: none;
+    }
+
+    // &--small {
+    //   padding: 6px 14px;
+    //   font-size: 12px;
+    // }
+
+    &--dark {
+        &,
+        &:focus {
+            border: 1px solid $blue-5;
+            color: $white;
+            background-color: $blue-5;
+        }
+        &:hover {
+            background-color: $blue-10;
+        }
+    }
+
+    &--turquoise{
+        &,
+        &:focus {
+            border: 1px solid #17A2B8;
+            color: #17A2B8;
+            background-color: $white;
+        }
+        &:hover {
+            background-color:  $white;
+        }
+    }
+
+    &--light {
+        &,
+        &:focus {
+            border: 1px solid $blue-5;
+            color: $blue-5;
+            background-color: $white;
+        }
+    }
+
+    &--danger {
+        &,
+        &:focus {
+            border: 1px solid $blue-5;
+            border: none;
+            color: $white;
+            background-color: $red-2;
+        }
+    }
+
+    &--obscure {
+        &,
+        &:focus {
+            border: 1px solid $gray-8;
+            color: $white;
+            background-color: $gray-5;
+            pointer-events: none;
+        }
+    }
+
+    &--gray {
+        &,
+        &:focus {
+            border: 1px solid $gray-5;
+            color: $white;
+            background-color: $gray-5;
+            pointer-events: none;
+        }
+    }
+}
+
+@mixin button-icon($w: auto, $h: auto) {
+    width: $w;
+    height: $h;
+}
+
+// Tables
+
+@mixin table-meta {
+    display: flex;
+    min-height: 4.5vh;
+    padding-left: 1vh;
+    margin-bottom: 4px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8vh;
+}
+
+@mixin table-meta-text {
+    font-weight: 500;
+
+    &--number {
+        font-weight: 700;
+    }
+}
+
+@mixin table {
+    border-radius: 4px;
+    background-color: $white;
+    box-shadow: $sh-5;
+    overflow: hidden;
+}
+
+@mixin table-row($px: 1.1vh, $gtc: 0, $cg: 0) {
+    display: grid;
+    padding: 0 $px;
+    grid-template-columns: $gtc;
+    column-gap: $cg;
+
+    &--header {
+        border-radius: 4px;
+        background-color: $blue-2;
+    }
+}
+
+@mixin table-header-cell {
+    display: flex;
+    padding: 1.5vh 1.1vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2vh;
+    font-weight: 500;
+}
+
+@mixin table-cell($py: 1.1vh, $px: 1.1vh, $js: center, $ws: nowrap) {
+    padding: $py $px;
+    justify-self: $js;
+    align-self: center;
+    font-size: 1.8vh;
+    line-height: 2.1vh;
+    white-space: $ws;
+}
+
+// Inputs
+
+@mixin form-input-wrapper($mb: 20px) {
+    margin-bottom: $mb;
+    position: relative;
+}
+
+@mixin form-input($w: auto, $h: auto, $py: 7px, $px: 11px, $mb: 0, $fz: 12px) {
+    width: $w;
+    height: $h;
+    padding: $py $px;
+    border-radius: 4px;
+    margin-bottom: $mb;
+    box-sizing: border-box;
+    font-size: $fz;
+
+    &,
+    &:focus,
+    &:disabled {
+        border: 1px solid #cfe2ff;
+        margin-bottom: $mb;
+        color: $gray-1;
+        box-shadow: none;
+        outline: none;
+    }
+
+    &::placeholder {
+        color: $blue-4;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    &--error {
+        border-color: $red-2 !important;
+    }
+
+    &--disabled {
+        border-color: $gray-2 !important;
+        color: $gray-1 !important;
+    }
+}
+
+@mixin form-title($mb: 3px, $fz: 12px, $c: #{$gray-1}) {
+    display: block;
+    margin-bottom: $mb;
+    font-size: $fz;
+    color: $c;
+}
+
+@mixin form-description-message {
+    position: absolute;
+    top: calc(100% + 5px);
+    font-size: 9px;
+    line-height: 9px;
+    color: $gray-2;
+}
+
+@mixin form-error-message($t: 5px) {
+    position: absolute;
+    top: calc(100% + #{$t});
+    font-size: 9px;
+    line-height: 9px;
+    color: $red-2;
+}
+
+@mixin form-select-arrow($t: 1px) {
+    height: 10px;
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    transform: rotate(-90deg);
+    transition: $anim-transform;
+    cursor: pointer;
+
+    &--active {
+        transform: rotate(90deg);
+    }
+}
+
+@mixin form-select-dropdown($t: 1px) {
+    width: 100%;
+    max-height: 190px;
+    padding: 4px;
+    border: 1px solid $blue-4;
+    border-radius: 4px;
+    position: absolute;
+    top: calc(100% + #{$t});
+    left: 0;
+    background-color: $white;
+}
+
+@mixin form-select-option {
+    width: 100%;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $blue-2;
+    }
+}
+
+@mixin form-radio-group($mb: 20px, $fd: row, $cg: 30px, $rg: 30px) {
+    display: flex;
+    margin-bottom: $mb;
+    flex-direction: $fd;
+    column-gap: $cg;
+    row-gap: $rg;
+}
+
+@mixin form-radio-wrapper($w: 80px, $h: 40px, $py: 11px, $px: 12px, $mr: 0, $mb: 0) {
+    display: flex;
+    width: $w;
+    height: $h;
+    padding: $px $py $px #{$py + 16px};
+    border: 1px solid $blue-5;
+    border-radius: 4px;
+    margin-right: $mr;
+    margin-bottom: $mb;
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin form-radio {
+    width: 0;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked ~ &-new {
+        border-width: 4px;
+    }
+}
+
+@mixin form-radio-new($l: 12px) {
+    width: 16px;
+    height: 16px;
+    border: 1px solid $blue-5;
+    border-radius: 50%;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    left: $l;
+    background-color: $white;
+}
+
+@mixin form-radio-label($ml: 11px, $fz: 16px) {
+    margin-left: $ml;
+    font-size: $fz;
+    font-weight: 500;
+    color: $blue-5;
+}
+
+// Tip
+
+@mixin tip($mxw: unset, $ws: normal) {
+    max-width: $mxw;
+    padding: 4px 10px;
+    border-radius: 4px;
+    position: absolute;
+    font-size: 12px;
+    color: $white;
+    background-color: $blue-7;
+    opacity: 0;
+    transition: $anim-tip;
+    white-space: $ws;
+    pointer-events: none;
+}
+
+// Popups
+
+@mixin popup-wrapper($pt: calc(28vh - 170px), $ai: flex-start) {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    padding-top: $pt;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    justify-content: center;
+    align-items: $ai;
+    background-color: $gray-tr-1;
+}
+
+@mixin popup($w: unset, $pt: 60px, $px: 90px, $pb: 40px) {
+    width: $w;
+    padding: $pt $px $pb;
+    position: relative;
+    background-color: $white;
+    border-radius: 20px;
+    box-shadow: $sh-1;
+    line-height: 1;
+}
+
+@mixin popup-close($t: 20px, $r: 20px, $b: unset, $l: unset) {
+    padding: 1px 2px;
+    border-radius: 4px;
+    position: absolute;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+    cursor: pointer;
+    &:hover {
+        background-color: $blue-tr-5;
+    }
+}
+
+@mixin popup-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: $gray-3;
+}
+
+// Scrollbar
+
+@mixin scrollbar {
+    & .simplebar-vertical {
+        width: 8px;
+    }
+
+    & .simplebar-scrollbar::before {
+        width: 4px;
+        border-radius: 100px;
+        background-color: $blue-7;
+        opacity: 0.6;
+    }
+}
+
+// ==============================================
+// Customer Route
+// ==============================================
+
+// Customer title
+
+@mixin customer-title-wrapper {
+    height: 26px;
+    overflow: visible;
+}
+
+@mixin customer-title {
+    display: flex;
+    height: 26px;
+    margin-bottom: 5px;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+// Dashed border
+
+@mixin dashed-border {
+    fill: transparent;
+    stroke: $blue-3;
+    stroke-width: 1px;
+    stroke-dasharray: 10;
+    stroke-linecap: round;
+}
+
+@mixin effectivity-tag {
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: #e5e5e5;
+    border-radius: 16px;
+    padding: 3px 12px;
+}
+
+@mixin custom-scroll($thumb-color: $blue-5, $thumb-width: 4px) {
+    &::-webkit-scrollbar {
+        width: $thumb-width;
+        height: $thumb-width;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $thumb-color;
+        border-radius: 100px;
+    }
+
+    & {
+        scrollbar-width: thin;
+        scrollbar-color: $thumb-color transparent;
+    }
+}
+
+// два спана другий с приставкою _inner, вішать на зовнішній спан _active
+@mixin newRadio($width: 14px, $height: 14px) {
+    border: 1px solid #2c7dfa;
+    width: $width;
+    height: $height;
+    min-width: $width;
+    border-radius: 50%;
+    position: relative;
+    transition: 0.3s ease-in-out background-color, 0.3s ease-in-out border;
+    background-color: $white;
+
+    &_inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(#{$width}/ 2);
+        height: calc(#{$height} / 2);
+        background-color: $white;
+        border-radius: 50%;
+        z-index: 10;
+    }
+
+    &:hover {
+        background-color: #95befc;
+    }
+
+    &_active {
+        background-color: #2c7dfa;
+        border: 1px solid transparent;
+    }
+}
+
+@mixin absoluteCenter($x: false, $y: false, $xy: false) {
+    position: absolute;
+
+    @if $x {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @if $y {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @if $xy {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
