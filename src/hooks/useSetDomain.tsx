@@ -16,21 +16,21 @@ export const useSetDomains = (
                 setDomainsIsDownloaded(true);
             })
             .catch(() => {
-                if ("localhost" === location.hostname || -1 < location.hostname.indexOf("ngrok.io")) {
-                    dispatch({
-                        type: "SET_DOMAINS",
-                        payload: {
-                            domains: {
-                                constructorApiDomain: `https://mhp.inboost.ai:${portForDevelop}`,
-                                appApiDomain: "https://pharma.inboost.ai:11132",
-                                websocketDomain: "https://mhp.inboost.ai:5053",
-                            },
+                // if ("localhost" === location.hostname || -1 < location.hostname.indexOf("ngrok.io")) {
+                dispatch({
+                    type: "SET_DOMAINS",
+                    payload: {
+                        domains: {
+                            constructorApiDomain: `https://mhp.inboost.ai:${portForDevelop}`,
+                            appApiDomain: "https://pharma.inboost.ai:11132",
+                            websocketDomain: "https://mhp.inboost.ai:5053",
                         },
-                    });
-                    setDomainsIsDownloaded(true);
-                } else {
-                    alert("He знайдено файл налаштувань.");
-                }
+                    },
+                });
+                setDomainsIsDownloaded(true);
+                // } else {
+                //     alert("He знайдено файл налаштувань.");
+                // }
             });
     }, []);
 };
