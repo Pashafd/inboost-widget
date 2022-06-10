@@ -1,10 +1,17 @@
 import React, { ReactElement } from "react";
 
-export const Instagram = ({ changeOpenModal }: { changeOpenModal?: () => void }): ReactElement => {
+export const Instagram = ({
+    changeOpenModal,
+    className,
+}: {
+    changeOpenModal?: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+    className?: string;
+}): ReactElement => {
     return (
         <svg
-            onClick={() => changeOpenModal?.()}
+            onClick={changeOpenModal}
             width='24'
+            className={className ?? ""}
             height='24'
             viewBox='0 0 24 24'
             fill='none'

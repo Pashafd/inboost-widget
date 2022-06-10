@@ -4,7 +4,6 @@ import { IChatMessage } from "@/store/slices/chatSlice";
 import { ReactElement, useEffect, useRef } from "react";
 import { DocumentSvg } from "../../assets/documentSvg";
 import FileSaver from "file-saver";
-import modules from "@/styles/global.module.scss";
 
 export const MiniChatWindowMessage = ({
     message,
@@ -27,17 +26,14 @@ export const MiniChatWindowMessage = ({
         {
             [1]: message?.messageText,
             [2]: (
-                <button
-                    onClick={() => downloadFile(message?.messageText)}
-                    className={modules["chat-new__message-file"]}
-                >
+                <button onClick={() => downloadFile(message?.messageText)} className='chat-new__message-file'>
                     <p>Файл</p>
                     <DocumentSvg />
                 </button>
             ),
             [3]: (
                 <a href={message?.messageText}>
-                    <img className={modules["chat-new__message-image"]} src={message?.messageText} />
+                    <img className='chat-new__message-image' src={message?.messageText} />
                 </a>
             ),
         }[message?.typeMessage as 1 | 2 | 3] ?? "message";
@@ -68,8 +64,8 @@ export const MiniChatWindowMessage = ({
     return (
         <>
             {newDateMessage ? (
-                <div className={modules["chat-new__date-message"]}>
-                    <div className={modules["chat-new__date-inner"]}>
+                <div className='chat-new__date-message'>
+                    <div className='chat-new__date-inner'>
                         {new Date(message?.dateMessage).toLocaleDateString("uk", {
                             day: "numeric",
                             month: "numeric",
@@ -86,19 +82,13 @@ export const MiniChatWindowMessage = ({
                     paddingRight: `${!needAvatar ? "38px" : "0px"}`,
                     flexDirection: "row",
                 }}
-                className={modules[`client-chat__message session-${message?.idSession}`]}
+                className={`client-chat__message session-${message?.idSession}`}
                 data-date={message?.dateMessage}
             >
                 <img
-                    className={
-                        modules[
-                            `content-header__avatar${
-                                message?.userPhoneNumber === chatInfo?.phoneNum
-                                    ? " content-header__avatar-user"
-                                    : ""
-                            }`
-                        ]
-                    }
+                    className={`content-header__avatar${
+                        message?.userPhoneNumber === chatInfo?.phoneNum ? " content-header__avatar-user" : ""
+                    }`}
                     style={{ display: `${needAvatar ? "block" : "none"}`, width: "32px", height: "32px" }}
                     src={userFromMessageInfo?.userPhoto}
                 />
@@ -107,20 +97,16 @@ export const MiniChatWindowMessage = ({
                         flexDirection:
                             message?.userPhoneNumber === chatInfo?.phoneNum ? "row-reverse" : "row",
                     }}
-                    className={modules["chat-new__message-wrap"]}
+                    className='chat-new__message-wrap'
                 >
                     <>
                         <div
-                            className={
-                                modules[
-                                    `chat-new__message chat-new__message_${
-                                        message?.userPhoneNumber === chatInfo?.phoneNum ? "f" : "t"
-                                    }`
-                                ]
-                            }
+                            className={`chat-new__message chat-new__message_${
+                                message?.userPhoneNumber === chatInfo?.phoneNum ? "f" : "t"
+                            }`}
                         >
                             {message?.userPhoneNumber !== chatInfo?.phoneNum ? (
-                                <span className={modules["chat-new__message-name"]}>
+                                <span className='chat-new__message-name'>
                                     {`${userFromMessageInfo?.userName ?? ""} ${
                                         userFromMessageInfo?.lastName ?? ""
                                     }`}
@@ -130,7 +116,7 @@ export const MiniChatWindowMessage = ({
                             <div>
                                 {messageCorrect}
 
-                                <div className={modules["chat-new__message_date"]}>
+                                <div className='chat-new__message_date'>
                                     {new Date(message?.dateMessage).toLocaleString("uk", {
                                         hour: "numeric",
                                         minute: "numeric",

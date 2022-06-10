@@ -5,7 +5,6 @@ import { useRef } from "react";
 import { MiniChatFileUpload } from "./miniChatFileUpload";
 import TextareaAutosize from "react-textarea-autosize";
 import { AirplaneNew } from "@/assets/airpalneNew";
-import modules from "@/styles/global.module.scss";
 
 export const MiniChatInput = ({
     sendMessage,
@@ -34,8 +33,8 @@ export const MiniChatInput = ({
     };
 
     return (
-        <div className={modules["chat-new__editable"]}>
-            <div className={modules["chat-new__editable-icon"]}>
+        <div className='chat-new__editable'>
+            <div className='chat-new__editable-icon'>
                 <MiniChatFileUpload
                     uploadFileFunction={v => {
                         sendFile(v);
@@ -44,9 +43,9 @@ export const MiniChatInput = ({
                 />
             </div>
 
-            <div className={modules["chat-new__input-wrap"]}>
+            <div className='chat-new__input-wrap'>
                 <TextareaAutosize
-                    className={modules["chat-new__input"]}
+                    className='chat-new__input'
                     ref={inputRef}
                     onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
                         setMessage(e.target.value);
@@ -62,25 +61,25 @@ export const MiniChatInput = ({
                     }}
                 />
 
-                <div className={modules["chat-new__emoji-icon"]}>
-                    <button className={modules["chat-new__emoji-button"]}>
+                <div className='chat-new__emoji-icon'>
+                    <button className='chat-new__emoji-button'>
                         <EmojiIconNew />
                     </button>
 
-                    <div className={modules["right-panel-smiles-block"]}>
+                    <div className='right-panel-smiles-block'>
                         <Picker color='#2c7dfa' onSelect={addEmoji} />
                     </div>
                 </div>
             </div>
 
             <button
-                className={modules["chat-new__send"]}
+                className='chat-new__send'
                 onClick={(e: React.SyntheticEvent) => {
                     e.preventDefault();
                     onSubmit();
                 }}
             >
-                <div className={modules["chat-new__send"]}>
+                <div className='chat-new__send'>
                     <AirplaneNew />
                 </div>
             </button>

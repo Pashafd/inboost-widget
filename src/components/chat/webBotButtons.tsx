@@ -2,7 +2,6 @@ import { useAppSelector } from "@/hooks/tsReduxHook";
 import { IBtnsGrid, BtnGridEnum } from "@/store/slices/chatSlice";
 import { ReactElement, useEffect, useState } from "react";
 import { DialogKeyboardButton, MultiLanguageValue } from "./chatIndex";
-import modules from "@/styles/global.module.scss";
 
 export const WebBotButtons = ({
     keyboard,
@@ -38,27 +37,23 @@ export const WebBotButtons = ({
     }, [keyboard]);
 
     return (
-        <div className={modules["web-bot__keyboard"]}>
+        <div className='web-bot__keyboard'>
             {buttons?.map(btn => {
                 return (
                     <button
                         key={btn.id}
                         onClick={() => clickButton(btn?.text)}
                         style={{ width: btn.width }}
-                        className={modules["text-truncate buttons-position__button"]}
+                        className='text-truncate buttons-position__button'
                     >
                         <span
-                            className={
-                                modules[
-                                    `buttons-position__button-text buttons-position__button-text${
-                                        {
-                                            [BtnGridEnum.oneInRow]: "-1",
-                                            [BtnGridEnum.twoInRow]: "-2",
-                                            [BtnGridEnum.threeInRow]: "-3",
-                                        }[btn.width]
-                                    }`
-                                ]
-                            }
+                            className={`buttons-position__button-text buttons-position__button-text${
+                                {
+                                    [BtnGridEnum.oneInRow]: "-1",
+                                    [BtnGridEnum.twoInRow]: "-2",
+                                    [BtnGridEnum.threeInRow]: "-3",
+                                }[btn.width]
+                            }`}
                         >
                             {btn.name}
                         </span>

@@ -18,15 +18,15 @@ export const StartModal = ({
     const managerInfo = useAppSelector(state => state.managerInfoReducer);
 
     const startChat = async () => {
-        try {
-            await api.post("WebBot/webhook", {
-                userPhoneNumber: value,
-                userName: managerInfo?.firstname ?? "user",
-                action: "auth",
-            });
-        } catch (err) {
-            console.error(err);
-        }
+        // try {
+        //     await api.post("WebBot/webhook", {
+        //         userPhoneNumber: value,
+        //         userName: managerInfo?.firstname ?? "user",
+        //         action: "auth",
+        //     });
+        // } catch (err) {
+        //     console.error(err);
+        // }
 
         const curChatInfo = {
             userName: "OPERATOR",

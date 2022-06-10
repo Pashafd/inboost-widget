@@ -4,7 +4,7 @@ import { ChatInfo } from "@/store/reducer/chatReducer";
 import { ReactElement, useContext, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { MiniChat } from "./miniChat";
-import modules from "@/styles/global.module.scss";
+import "../../styles/global.scss";
 
 export enum Languages {
     UA = "UA",
@@ -82,12 +82,14 @@ export const ChatIndex = (): ReactElement => {
 
     return (
         <div
-            style={{
-                left: `calc(100% - ${370 + currentChats.length * 20}px)`,
-                bottom: `${currentChats.length * 8}px`,
-            }}
+            style={
+                {
+                    // left: `calc(100% - ${370 + currentChats.length * 20}px)`,
+                    // bottom: `${currentChats.length * 8}px`,
+                }
+            }
             ref={chatWrapRef}
-            className={modules["chat-new__wrapper-chats"]}
+            className='chat-new__wrapper-chats'
         >
             {currentChats.map((chat, idx) => (
                 <MiniChat

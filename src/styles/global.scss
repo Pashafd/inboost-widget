@@ -20,8 +20,11 @@ html {
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 0px;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.22);
     z-index: 1000;
+    overflow: hidden;
 }
 .chat-new__chat-wrap {
     box-shadow: $sh-9;
@@ -33,8 +36,8 @@ html {
     transition: 0.3s ease-in-out height;
     transform-origin: top;
     position: absolute;
-    left: -48px;
-    bottom: 48px;
+    right: 20px;
+    bottom: 20px;
     z-index: 103;
     &:nth-child(2) {
         left: -24px;
@@ -442,4 +445,19 @@ html {
     flex-wrap: wrap;
     gap: 5px;
     padding: 0 10px;
+}
+@media (max-width: 900px) {
+    .chat-new__chat-wrap {
+        height: 100%;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        z-index: 104;
+    }
+    .chat-new__wrapper-chats {
+        left: 0 !important;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+    }
 }

@@ -1,0 +1,220 @@
+.menu {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 80px;
+    right: 90px;
+    margin-left: -25px;
+    margin-top: -25px;
+    input {
+        position: absolute;
+        display: none;
+    }
+}
+.btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 70px;
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+    &-main {
+        width: 52px;
+        height: 52px;
+        left: -15px;
+        top: -11px;
+        z-index: 101;
+    }
+}
+.material-icons.md-36 {
+    font-size: 36px;
+    color: #03a9f4;
+}
+.btn {
+    background: transparent;
+    font-size: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.btn:not(:first-child) {
+    // opacity: 0;
+    // z-index: -2;
+
+    // -webkit-transition: all 0.6s cubic-bezier(0.87, -0.41, 0.19, 1.44);
+    // transition: all 0.6s cubic-bezier(0.87, -0.41, 0.19, 1.44);
+    top: 0px;
+    left: 0px;
+    -webkit-transition-delay: 0.35s;
+    transition-delay: 0.35s;
+}
+.btn:nth-child(2) {
+    // top: 0px;
+    // -webkit-transition-delay: 0s;
+    // transition-delay: 0s;
+    left: 0px;
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+.btn:nth-child(3) {
+    // top: 0px;
+    // left: 0px;
+    // -webkit-transition-delay: 0.05s;
+    // transition-delay: 0.05s;
+    top: 0px;
+    left: 0px;
+    -webkit-transition-delay: 0.25s;
+    transition-delay: 0.25s;
+}
+.btn:nth-child(4) {
+    // left: 0px;
+    // -webkit-transition-delay: 0.1s;
+    // transition-delay: 0.1s;
+    top: 0px;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+.btn:nth-child(5) {
+    top: 0px;
+    left: 0px;
+    -webkit-transition-delay: 0.15s;
+    transition-delay: 0.15s;
+}
+.btn:nth-child(6) {
+    // top: 0px;
+    // -webkit-transition-delay: 0.2s;
+    // transition-delay: 0.2s;
+    left: 0px;
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+.btn:nth-child(7) {
+    // top: 0px;
+    // left: 0px;
+    // -webkit-transition-delay: 0.25s;
+    // transition-delay: 0.25s;
+    top: 0px;
+    left: 0px;
+    -webkit-transition-delay: 0.05s;
+    transition-delay: 0.05s;
+}
+.btn:nth-child(8) {
+    // left: 0px;
+    // -webkit-transition-delay: 0.3s;
+    // transition-delay: 0.3s;
+    top: 0px;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.btn:nth-child(9) {
+    // top: 0px;
+    // left: 0px;
+    // -webkit-transition-delay: 0.35s;
+    // transition-delay: 0.35s;
+    opacity: 0;
+    z-index: -2;
+    -webkit-transition: all 0.6s cubic-bezier(0.87, -0.41, 0.19, 1.44);
+    transition: all 0.6s cubic-bezier(0.87, -0.41, 0.19, 1.44);
+}
+
+.menu-open .btn:nth-child(2) {
+    // top: -150px;
+    // opacity: 1;
+    top: -25px;
+    left: -23px;
+    z-index: 103;
+    opacity: 1;
+}
+.menu-open .btn:nth-child(3) {
+    // top: -100px;
+    // left: 100px;
+    // opacity: 1;
+    left: -35px;
+    z-index: 103;
+    opacity: 1;
+}
+.menu-open .btn:nth-child(4) {
+    // left: 150px;
+    // opacity: 1;
+    top: 25px;
+    left: -25px;
+    z-index: 103;
+    opacity: 1;
+}
+.menu-open .btn:nth-child(5) {
+    // top: 100px;
+    // left: 100px;
+    // opacity: 1;
+    top: 35px;
+    z-index: 103;
+    opacity: 1;
+}
+.menu-open .btn:nth-child(6) {
+    // top: 150px;
+    // opacity: 1;
+    top: 30px;
+    left: 25px;
+    z-index: 103;
+    opacity: 1;
+}
+.menu-open .btn:nth-child(7) {
+    // top: 100px;
+    // left: -100px;
+    // opacity: 1;
+    left: 55px;
+    z-index: 103;
+    opacity: 1;
+}
+.menu-open .btn:nth-child(8) {
+    // left: -150px;
+    // opacity: 1;
+    top: -40px;
+    left: 30px;
+    z-index: 103;
+    opacity: 1;
+}
+.menu-open .btn:nth-child(9) {
+    // top: -100px;
+    // left: -100px;
+    // opacity: 1;
+    top: -35px;
+    opacity: 1;
+    z-index: 103;
+}
+.menuBtn,
+.closeBtn {
+    position: absolute;
+    transition: all 0.3s ease;
+}
+.closeBtn {
+    transform: translateY(50px);
+    opacity: 0;
+}
+.menu-open .btn .menuBtn {
+    transform: translateY(-50px);
+    opacity: 0;
+}
+.menu-open .btn .closeBtn {
+    transform: translateY(0px);
+    opacity: 1;
+}
+.two {
+    z-index: 101;
+}
+.one {
+    z-index: 102;
+}
+@media (max-width: 650px) {
+    .menu {
+        transform: scale(2);
+        bottom: 150px;
+        right: 110px;
+    }
+}

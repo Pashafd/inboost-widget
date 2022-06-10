@@ -1,7 +1,14 @@
 import React, { ReactElement } from "react";
 
-export const MessageCircleActive = (): ReactElement => (
-    <svg width='94' height='94' viewBox='0 0 94 94' fill='none' xmlns='http://www.w3.org/2000/svg'>
+export const MessageCircleActive = ({ className }: { className?: string }): ReactElement => (
+    <svg
+        className={className}
+        width='94'
+        height='94'
+        viewBox='0 0 94 94'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+    >
         <g filter='url(#filter0_b_8908_52020)'>
             <path
                 d='M78 43C78 60.1208 64.1208 74 47 74C29.8792 74 16 60.1208 16 43C16 25.8792 29.8792 12 47 12C64.1208 12 78 25.8792 78 43Z'

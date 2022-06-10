@@ -1,6 +1,5 @@
 import { PaperClip } from "@/assets/paperClip";
 import React, { ReactElement, useRef } from "react";
-import modules from "@/styles/global.module.scss";
 
 export const MiniChatFileUpload = ({
     uploadFileFunction,
@@ -32,15 +31,15 @@ export const MiniChatFileUpload = ({
         <div
             title={allowedFileExtensions?.join(" ")}
             onClick={() => fileRef?.current?.click()}
-            className={modules["file-upload__wrap"]}
+            className='file-upload__wrap'
         >
             <PaperClip fill='#ADB5BD' />
 
-            <div className={modules["file-upload__inner"]}>
+            <div className='file-upload__inner'>
                 <input
                     type='file'
                     ref={fileRef}
-                    className={modules["file-upload__inner-input"]}
+                    className='file-upload__inner-input'
                     accept={allowedFileExtensions?.map(ext => "." + ext)?.join(",")}
                     onChange={uploadFile}
                 />

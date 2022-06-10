@@ -1,9 +1,16 @@
 import React, { ReactElement } from "react";
 
-export const Viber = ({ changeOpenModal }: { changeOpenModal?: () => void }): ReactElement => {
+export const Viber = ({
+    changeOpenModal,
+    className,
+}: {
+    changeOpenModal?: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+    className?: string;
+}): ReactElement => {
     return (
         <svg
-            onClick={() => changeOpenModal?.()}
+            className={className ?? ""}
+            onClick={changeOpenModal}
             width='24'
             height='24'
             viewBox='0 0 24 24'

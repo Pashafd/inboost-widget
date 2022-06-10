@@ -1,7 +1,6 @@
 import { useLocaleText } from "@/hooks/useLocaleText";
 import { ReactElement } from "react";
 import { ButtonDownSvg } from "../../assets/buttonDownSvg";
-import modules from "@/styles/global.module.scss";
 
 export const MiniChatControl = ({
     active,
@@ -20,12 +19,12 @@ export const MiniChatControl = ({
 }): ReactElement => {
     const { t } = useLocaleText();
     return (
-        <div className={modules["chat-control"]}>
-            {showBtn ? <ButtonDownSvg onClick={scrollToBot} className={modules["chat-new__down"]} /> : null}
+        <div className='chat-control'>
+            {showBtn ? <ButtonDownSvg onClick={scrollToBot} className='chat-new__down' /> : null}
             {children ? children : null}
 
-            <div className={modules["chat-control__wrap"]}>
-                <p className={modules["chat-control__label"]}>
+            <div className='chat-control__wrap'>
+                <p className='chat-control__label'>
                     {active ? t("InfoToEndOnlineChat") : t("InfoToStartOnlineChat")}
                 </p>
                 <button
@@ -35,8 +34,8 @@ export const MiniChatControl = ({
                         }
                         setChatIsActive(!active);
                     }}
-                    className={`${modules["chat-control__button"]}${
-                        active ? ` ${modules["chat-control__button_active"]}` : ""
+                    className={`${"chat-control__button"}${
+                        active ? ` ${"chat-control__button_active"}` : ""
                     }`}
                 >
                     {active ? t("ButtonToEndOnlineChat") : t("ButtonToStartOnlineChat")}

@@ -12,7 +12,8 @@ export interface AuthReducerState {
 }
 
 const initialState: AuthReducerState = {
-    bearerToken: null,
+    bearerToken:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIyMzkxIiwiUm9sZUlkIjoiNCIsIlBvcnRhbElkIjoiMTMxMCIsInJvbGUiOiJQb3J0YWxBZG1pbiIsIm5iZiI6MTY1Mjc5MTEwNiwiZXhwIjoxNjY4Njg4NzA2LCJpYXQiOjE2NTI3OTExMDZ9.0Bn9jCta4s7vRRuiWRYnr6dSBA91g0Xm5QS2VC-exHA",
     expired_in: null,
     domains: {
         appApiDomain: null,

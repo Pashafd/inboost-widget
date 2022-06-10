@@ -4,7 +4,6 @@ import { useAppSelector } from "@/hooks/tsReduxHook";
 import { ChatInfo } from "@/store/reducer/chatReducer";
 import React, { ReactElement, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import modules from "@/styles/global.module.scss";
 
 export const MiniChatHeader = ({
     chatInfo,
@@ -74,22 +73,22 @@ export const MiniChatHeader = ({
                     };
                 }
             }}
-            className={modules["chat-new__chat-header"]}
+            className="chat-new__chat-header"
         >
             <div
                 onClick={(e: React.MouseEvent) => {
                     e.stopPropagation();
                     setMoveInfo({ ...moveInfo, down: false });
                 }}
-                className={modules["chat-new__chat-flex"]}
+                className="chat-new__chat-flex"
             >
                 <img
-                    className={modules["chat-new__chat-avatar"]}
+                    className="chat-new__chat-avatar"
                     src={mainUserInfo?.userPhoto}
                     alt={`${mainUserInfo?.userName ?? ""} avatar`}
                 />
                 <a
-                    className={modules["chat-new__chat-link"]}
+                    className="chat-new__chat-link"
                     href={`/clients/list/client/${window.btoa(chatInfo?.phoneNum)}`}
                 >
                     {mainUserInfo?.userName ? mainUserInfo?.userName : "username"}
@@ -101,14 +100,14 @@ export const MiniChatHeader = ({
                     e.stopPropagation();
                     setMoveInfo({ ...moveInfo, down: false });
                 }}
-                className={modules["chat-new__chat-flex"]}
+                className="chat-new__chat-flex"
             >
                 <button
                     onClick={() => {
                         setChatBodyHeight(450 === chatBodyHeight ? 0 : 450);
                         setChatIsActive(null === active ? null : false);
                     }}
-                    className={modules["chat-new__chat-button"]}
+                    className="chat-new__chat-button"
                 >
                     <Minimize />
                 </button>
@@ -118,7 +117,7 @@ export const MiniChatHeader = ({
                         e.stopPropagation();
                         dispatch({ type: "REMOVE_FROM_CHAT_QUEUE", payload: chatInfo });
                     }}
-                    className={modules["chat-new__chat-button"]}
+                    className="chat-new__chat-button"
                 >
                     <CloseNew />
                 </button>

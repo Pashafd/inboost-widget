@@ -1,9 +1,16 @@
 import React, { ReactElement } from "react";
-export const Web = ({ changeOpenModal }: { changeOpenModal?: () => void }): ReactElement => {
+export const Web = ({
+    changeOpenModal,
+    className,
+}: {
+    changeOpenModal?: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+    className?: string;
+}): ReactElement => {
     return (
         <svg
-            onClick={() => changeOpenModal?.()}
-             width='33'
+            className={className ?? ""}
+            onClick={changeOpenModal}
+            width='33'
             height='38'
             viewBox='0 0 33 38'
             fill='none'

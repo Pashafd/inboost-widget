@@ -11,7 +11,6 @@ import { MiniChatHeader } from "./miniChatHeader";
 import { MiniChatInput } from "./miniChatInput";
 import { MiniChatWindow } from "./miniChatWindow";
 import { WebBotButtons } from "./webBotButtons";
-import modules from "@/styles/global.module.scss";
 
 export const MiniChat = ({
     chatInfo,
@@ -32,7 +31,8 @@ export const MiniChat = ({
     const chatElem = useRef(null);
     const historyRef = useRef(null);
     const [chatIsActive, setChatIsActive] = useState(null);
-    const [chatBodyHeight, setChatBodyHeight] = useState(0);
+    const [viewMode, changeViewMode] = useState<1 | 2>(1);
+    const [chatBodyHeight, setChatBodyHeight] = useState<number>(0);
     const managerInfo = useAppSelector(state => state.managerInfoReducer);
     const history = useAppSelector(state => state.chat.chatHistory)?.find(
         chat => chat?.userPhoneNumber === chatInfo?.phoneNum,
@@ -41,9 +41,15 @@ export const MiniChat = ({
     const [keyboard, changeKeyboard] = useState<DialogKeyboardButton[]>([]);
 
     useEffect(() => {
-        setChatBodyHeight(0 === index ? 450 : 0);
-    }, [index]);
-
+        setChatBodyHeight(0 === index ? (1 === viewMode ? 100 : 450) : 0);
+    }, [index, viewMode]);
+    useEffect(() => {
+        if (window.matchMedia("(max-width: 900px)").matches) {
+            changeViewMode(1);
+        } else {
+            changeViewMode(2);
+        }
+    }, [window]);
     useEffect(() => {
         dispatch(fetchHistory({ api, userPhoneNumber: chatInfo?.phoneNum }));
         dispatch(findInfoForUser({ api, userPhoneNumber: chatInfo?.phoneNum }));
@@ -173,9 +179,12 @@ export const MiniChat = ({
                     [3]: () => setIndexOrder([103, 102, 101]),
                 }[index]
             }
-            style={{ height: chatBodyHeight + 60 + "px", zIndex: indexOrder[index] }}
+            style={{
+                height: 1 === viewMode ? chatBodyHeight + "vh" : chatBodyHeight + 60 + "px",
+                zIndex: indexOrder[index],
+            }}
             ref={chatElem}
-            className={modules["chat-new__chat-wrap"]}
+            className='chat-new__chat-wrap'
         >
             <MiniChatHeader
                 chatWrapRef={chatWrapRef}
@@ -186,8 +195,8 @@ export const MiniChat = ({
                 chatInfo={chatInfo}
             />
 
-            <div style={{ height: chatBodyHeight }} className={modules["chat-new__chat-body"]}>
-                <div ref={historyRef} className={modules["chat-new__history"]}>
+            <div style={{ height: chatBodyHeight }} className='chat-new__chat-body'>
+                <div ref={historyRef} className='chat-new__history'>
                     {history ? <MiniChatWindow history={history} chatInfo={chatInfo} /> : null}
                 </div>
 
