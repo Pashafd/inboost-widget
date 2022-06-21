@@ -4,15 +4,24 @@ import { Viber } from "@/assets/viber";
 import { Telegram } from "@/assets/telegram";
 import { Instagram } from "@/assets/instagram";
 import { Facebook } from "@/assets/facebook";
-import "./circle-menu.scss";
+// import "./circle-menu.scss";
 import { Web } from "@/assets/web";
+import { MessageCircleActive } from "@/assets/messageCircleActive";
+import "./messagesHub";
 
-export const MessageHub = ({ changeOpenModal }: { changeOpenModal: (v: boolean) => void }): ReactElement => {
-    const [active, changeActive] = useState(false);
+export const MessageHub = ({
+    changeOpenModal,
+    changeActive,
+    active,
+}: {
+    changeOpenModal: (v: boolean) => void;
+    changeActive: (v: boolean) => void;
+    active: boolean;
+}): ReactElement => {
     const [connectedMessenger] = useState(["instagram", "viber", "telegram", "facebook", "web"]);
     return (
         <div className={`message-hub${active ? " message-hub_active" : ""}`}>
-            {/* <div className='message-hub__icons'>
+            <div className='message-hub__icons'>
                 {active
                     ? connectedMessenger.map(messenger => {
                           const icon = {
@@ -27,18 +36,19 @@ export const MessageHub = ({ changeOpenModal }: { changeOpenModal: (v: boolean) 
                       })
                     : null}
             </div>
+
             <div onClick={() => changeActive(!active)}>
                 {active ? <MessageCircleActive /> : <MessageCircle />}
-            </div> */}
+            </div>
 
-            <div className={`menu${active ? " menu-open" : ""}`}>
+            {/* <div className={`menu${active ? " menu-open" : ""}`}>
                 <MessageCircle
                     onClick={() => changeActive(!active)}
                     active={active}
                     className='btn btn-main two'
-                />
+                /> */}
 
-                {connectedMessenger.map(messenger => {
+            {/* {connectedMessenger.map(messenger => {
                     const icon = {
                         viber: <Viber />,
                         telegram: <Telegram />,
@@ -54,8 +64,8 @@ export const MessageHub = ({ changeOpenModal }: { changeOpenModal: (v: boolean) 
                         },
                         className: "btn",
                     });
-                })}
-            </div>
+                })} */}
+            {/* </div> */}
         </div>
     );
 };

@@ -8,8 +8,10 @@ import { useConstructorApi } from "@/hooks/useApi";
 
 export const StartModal = ({
     changeOpenModal,
+    closeMenu,
 }: {
     changeOpenModal: (v: boolean) => void;
+    closeMenu: (v: boolean) => void;
     openModal: boolean;
 }): ReactElement => {
     const dispatch = useAppDispatch();
@@ -38,6 +40,7 @@ export const StartModal = ({
 
         dispatch({ type: "ADD_TO_CHAT_QUEUE", payload: curChatInfo });
         changeOpenModal(false);
+        closeMenu(true);
     };
 
     return (

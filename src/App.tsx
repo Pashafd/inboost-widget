@@ -16,15 +16,24 @@ const App: FC = () => {
     useSetDomains(setDomainsIsDownloaded, PORT_DEVELOPER);
     useGetTexts();
     const [openModal, changeOpenModal] = useState(false);
+    const [active, changeActive] = useState(false);
 
     return (
         <MyContext.Provider value={connection}>
             {domainsIsDownloaded ? (
                 <>
                     {isChatActive ? <ChatIndex /> : null}
-                    <MessageHub changeOpenModal={changeOpenModal} />
+                    <MessageHub
+                        active={active}
+                        changeActive={changeActive}
+                        changeOpenModal={changeOpenModal}
+                    />
                     {openModal ? (
-                        <StartModal openModal={openModal} changeOpenModal={changeOpenModal} />
+                        <StartModal
+                            closeMenu={changeActive}
+                            openModal={openModal}
+                            changeOpenModal={changeOpenModal}
+                        />
                     ) : null}
                 </>
             ) : null}
